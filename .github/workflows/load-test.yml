@@ -1,0 +1,21 @@
+name: K6 Load test
+on: workflow_dispatch
+
+jobs:
+  build:
+    name: Run k6 test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install k6
+        run: curl https://github.com/grafana/k6/releases/download/v0.47.0/k6-v0.47.0-linux-amd64.tar.gz -L | tar xvz --strip-components 1
+
+      - name: Install packages
+        run: npm install
+
+      - name: Run local k6 test
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: Backend/first_script.js
