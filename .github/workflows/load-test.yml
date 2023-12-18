@@ -13,3 +13,5 @@ jobs:
         uses: grafana/k6-action@v0.3.1
         with:
           filename: Backend/first_script.js
+        env:
+          BASE_URL: 'https://test.k6.io'

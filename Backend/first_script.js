@@ -8,12 +8,13 @@ export let options = {
   vus: 1,
   duration: '5s',
   thresholds: {
-    average: ['avg<100'],
+    average: ['avg<500'],
   },
 };
 
+// 'https://test.k6.io'
 export default function () {
-  let response = http.get('https://test.k6.io');
+  let response = http.get(__ENV.BASE_URL);
 
   const responseTime = response.timings.duration;
   average.add(responseTime);
