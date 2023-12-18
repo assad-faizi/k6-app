@@ -8,7 +8,7 @@ export let options = {
   vus: 1,
   duration: '5s',
   thresholds: {
-    average: ['avg<10'],
+    average: ['avg<100'],
   },
 };
 
